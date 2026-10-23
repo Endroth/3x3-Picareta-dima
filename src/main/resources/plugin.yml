@@ -1,0 +1,5 @@
+name: Picareta3x3
+version: 1.0
+main: me.picareta3x3.Picareta3x3
+api-version: '1.21'
+description: Picareta de diamante 3x3 craftada com 3 picaretas de diamante e 2 gravetos.
