@@ -1,6 +1,7 @@
 package me.picareta3x3;
 
 import org.bukkit.Bukkit;
+import org.bukkit.GameMode;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
 import org.bukkit.Sound;
@@ -15,8 +16,6 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.inventory.PrepareItemCraftEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
-import org.bukkit.GameMode;
-import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.RecipeChoice;
 import org.bukkit.inventory.ShapedRecipe;
@@ -65,8 +64,9 @@ public class Picareta3x3 extends JavaPlugin implements Listener {
     }
 
     private boolean ehPicareta3x3(ItemStack item) {
-   if (item == null || !item.hasItemMeta()) return false;
-   if (item.getType() != Material.DIAMOND_PICKAXE && item.getType() != Material.NETHERITE_PICKAXE) return false;
+        if (item == null || !item.hasItemMeta()) return false;
+        if (item.getType() != Material.DIAMOND_PICKAXE && item.getType() != Material.NETHERITE_PICKAXE) return false;
+        return item.getItemMeta().getPersistentDataContainer().has(toolKey, PersistentDataType.BYTE);
     }
 
     private void registrarReceita() {
