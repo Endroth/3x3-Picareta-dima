@@ -60,15 +60,13 @@ public class Picareta3x3 extends JavaPlugin implements Listener {
         meta.setDisplayName("§bPicareta 3x3");
         meta.setLore(List.of("§7Minera uma área de 3x3 blocos."));
         meta.getPersistentDataContainer().set(toolKey, PersistentDataType.BYTE, (byte) 1);
-        meta.addEnchant(Enchantment.UNBREAKING, 1, true); // só pelo brilho
-        meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
         item.setItemMeta(meta);
         return item;
     }
 
     private boolean ehPicareta3x3(ItemStack item) {
-        if (item == null || item.getType() != Material.DIAMOND_PICKAXE || !item.hasItemMeta()) return false;
-        return item.getItemMeta().getPersistentDataContainer().has(toolKey, PersistentDataType.BYTE);
+   if (item == null || !item.hasItemMeta()) return false;
+   if (item.getType() != Material.DIAMOND_PICKAXE && item.getType() != Material.NETHERITE_PICKAXE) return false;
     }
 
     private void registrarReceita() {
